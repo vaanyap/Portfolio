@@ -10,7 +10,17 @@ if (process.env.TEMPO === "true") {
 }
 
 export default defineConfig({
-  base: "/Portfolio/",  // Make sure this is the correct subdirectory for GitHub Pages
+  base: "/Portfolio/",  // Ensure this matches the subdirectory for GitHub Pages
+  build: {
+    // Ensure all assets and chunk files are properly output with hashed names
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name]-[hash][extname]",  // Ensures hashed names for assets
+        chunkFileNames: "assets/[name]-[hash].js",  // For JS chunks as well
+        entryFileNames: "assets/[name]-[hash].js",  // For entry points
+      },
+    },
+  },
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
