@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-scroll"; // Import the Link component from react-scroll
 
 function NavLink({ text, delay }: { text: string; delay: number }) {
   return (
@@ -51,10 +52,18 @@ function Home() {
         animate={{ y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        <NavLink text="About Me" delay={0.3} />
-        <NavLink text="Current Initiatives" delay={0.4} />
-        <NavLink text="Work Experience" delay={0.5} />
-        <NavLink text="Archive" delay={0.6} />
+        <Link to="about-me" smooth={true} duration={500} offset={-80}>
+          <NavLink text="About Me" delay={0.3} />
+        </Link>
+        <Link to="work-experience" smooth={true} duration={500} offset={-80}>
+          <NavLink text="Work Experience" delay={0.4} />
+        </Link>
+        <Link to="current-initiatives" smooth={true} duration={500} offset={-80}>
+          <NavLink text="Current Initiatives" delay={0.5} />
+        </Link>
+        <Link to="archive" smooth={true} duration={500} offset={-80}>
+          <NavLink text="Archive" delay={0.6} />
+        </Link>
       </motion.nav>
 
       {/* Hero Section */}
@@ -91,7 +100,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            Full Stack Developer & Designer
+            Aspiring Software Engineer, currently in 3rd year Computer Science at UWO.
           </motion.p>
 
           <motion.div
@@ -107,11 +116,39 @@ function Home() {
       {/* About Me Section */}
       <Section id="about-me" title="About Me">
         <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 space-y-4">
-          <p className="text-gray-700">[Your introduction will go here]</p>
+        <p className="text-gray-700">Hey there, I'm Vaanya Puri — your go to tech enthusiast who believes technology 
+          is the most beautiful thing that came from mankind.</p>
+          <p className="text-gray-700">By day, I am definitely going to my classes, 
+          working part time job as a barista for fun, debating if today is the day I 
+          finally go play badminton, volunteering as a soph, helping first-years 
+          navigate their way through the chaos of university life, or plotting how to 
+          make the world a better place one hackathon at a time.</p>
+          <p className="text-gray-700"> By night, I am either learning new languages (working on this website), 
+          trying to start a new TV Show, finishing up on some club work or just catching up on emails.</p>
         </div>
       </Section>
 
-      {/* Current Initiatives Section */}
+      {/* Work Experience Section */}
+      <Section id="work-experience" title="Work Experience">
+        <div className="space-y-6">
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              SweGreen
+            </h3>
+            <p className="text-purple-700 font-medium">Data Software Automation Engineer</p>
+            <p className="text-gray-700 mt-2">[Job description]</p>
+          </div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              Company Name
+            </h3>
+            <p className="text-purple-700 font-medium">Position • Duration</p>
+            <p className="text-gray-700 mt-2">[Job description]</p>
+          </div>
+        </div>
+      </Section>
+
+    {/* Current Initiatives Section */}
       <Section id="current-initiatives" title="Current Initiatives">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
@@ -125,19 +162,6 @@ function Home() {
               Initiative 2
             </h3>
             <p className="text-gray-700">[Initiative description]</p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Work Experience Section */}
-      <Section id="work-experience" title="Work Experience">
-        <div className="space-y-6">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Company Name
-            </h3>
-            <p className="text-purple-700 font-medium">Position • Duration</p>
-            <p className="text-gray-700 mt-2">[Job description]</p>
           </div>
         </div>
       </Section>
