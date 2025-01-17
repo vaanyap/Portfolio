@@ -11,9 +11,12 @@ if (process.env.TEMPO === "true") {
 }
 
 export default defineConfig({
-  base: "/Portfolio/",
-  optimizeDeps: {
-    entries: ["src/main.tsx", "src/tempobook/**/*"],
+  base: "/Portfolio/", // Matches the repo name for GitHub Pages
+  build: {
+    outDir: "dist", // Ensure the build goes into the correct folder
+    rollupOptions: {
+      input: "index.html", // Entry point for Rollup
+    },
   },
   plugins: [
     react({
