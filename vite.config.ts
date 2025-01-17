@@ -5,13 +5,12 @@ import { tempo } from "tempo-devtools/dist/vite";
 
 const conditionalPlugins: [string, Record<string, any>][] = [];
 
-// @ts-ignore
 if (process.env.TEMPO === "true") {
   conditionalPlugins.push(["tempo-devtools/swc", {}]);
 }
 
 export default defineConfig({
-  base: "/Portfolio",
+  base: "/Portfolio/",  // Make sure this is the correct subdirectory for GitHub Pages
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
